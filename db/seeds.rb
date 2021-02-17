@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+puts "Create contacts"
+100.times do
+  contact = Contact.new(
+    name: Faker::Name.unique.first_name,
+    )
+  contact.save
+end

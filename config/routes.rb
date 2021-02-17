@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: 'pages#home'
+  root to: 'contacts#index'
+  resources :contacts do
+    post 'tag' => 'contacts#tag'
+  end
+  get 'pages20' => 'contacts#pages20'
+  get 'pages50' => 'contacts#pages50'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

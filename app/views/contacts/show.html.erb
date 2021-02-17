@@ -1,0 +1,6 @@
+<h2 class="text-center m-2"><%= @contact.name %></h2>
+<%= link_to 'Edit', edit_contact_path(@contact), class: "btn btn-warning" %>
+<% if @contact.tag == true %>
+  ✓
+<% end %>
+<%= button_to 'Tag', contact_tag_path(@contact), method: :post %>
