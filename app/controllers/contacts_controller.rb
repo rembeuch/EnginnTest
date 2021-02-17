@@ -2,10 +2,12 @@ class ContactsController < ApplicationController
   skip_before_action :authenticate_user!
   def index
     @contacts = Contact.all
+    @pages = Page.first.number
   end
 
   def pages20
-    @contacts = Contact.all
+    Page.first.update(number: 20)
+    redirect_to root_path
   end
 
   def pages50

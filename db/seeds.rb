@@ -14,3 +14,6 @@ puts "Create contacts"
     )
   contact.save
 end
+
+page = Page.new
+page.save

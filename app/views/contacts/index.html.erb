@@ -1,8 +1,8 @@
 <div class="container">
   <%= link_to 'créer un contact', new_contact_path, class: 'btn btn-warning m-4' %>
-    <%= link_to '20', pages20_path, class: "btn btn-success" %>
+    <%= button_to '20', pages20_path, method: :post, class: "btn btn-success" %>
     <%= link_to '50', pages50_path, class: "btn btn-success" %>
-    <% @contacts.sort_by(&:created_at).reverse.first(10).each do |contact| %>
+    <% @contacts.sort_by(&:created_at).reverse.first(@pages).each do |contact| %>
     <div class="card mb-4">
       <%= link_to contact_path(contact), class: "text-center" do %>
       <h2 class="text-center m-2"><%= contact.name %>
