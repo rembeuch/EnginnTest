@@ -5,13 +5,19 @@ class ContactsController < ApplicationController
     @pages = Page.first.number
   end
 
+  def pages10
+    Page.first.update(number: 10)
+    redirect_to root_path
+  end
+
   def pages20
     Page.first.update(number: 20)
     redirect_to root_path
   end
 
   def pages50
-    @contacts = Contact.all
+    Page.first.update(number: 50)
+    redirect_to root_path
   end
 
   def show
@@ -51,17 +57,9 @@ class ContactsController < ApplicationController
     redirect_to root_path
   end
 
-  def tag
-    @contact =  Contact.find(params[:contact_id])
-    if @contact.tag == false
-      @contact.update(tag: true)
-    else
-      @contact.update(tag: false)
-    end
-    redirect_to root_path
-  end
+  private
 
   def contact_params
-    params.require(:contact).permit(:name, :tag)
+    params.require(:contact).permit(:name)
   end
 end
